@@ -90,6 +90,10 @@ function initSlider(options, slides) {
         arrowRight.addEventListener('click', nextSlide);
     }
 
+    function activateAutoplay() {
+        setInterval(nextSlide, options.autoplayInterval);
+    }
+
     function nextSlide() {
         const currentNum = +sliderImages.querySelector('.active').dataset.index;
         let nextNum = currentNum === slides.length - 1 ? 0 : currentNum + 1;
@@ -124,6 +128,10 @@ function initSlider(options, slides) {
 
     if (options.titles) {
         setTitles(0);
+    }
+
+    if (options.autoplay) {
+        activateAutoplay();
     }
 }
 
