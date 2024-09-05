@@ -42,6 +42,25 @@
 
 
 /* ===Changeable styles=== */
+.slider__titles {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+    padding: 7px 0;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    overflow: hidden;
+    max-height: 32px;
+}
+
 .slider__arrows {
     position: absolute;
     top: 0;
@@ -69,11 +88,11 @@
 .slider__arrow.left {
     left: 0;
 }
-  
+
 .slider__arrow.right {
     right: 0;
 }
-  
+
 .slider__arrow:hover {
     opacity: 1;
 }
@@ -87,7 +106,7 @@
     bottom: -20px;
     width: 100%;
 }
-  
+
 .slider__dot {
     width: 10px;
     height: 10px;
@@ -97,7 +116,7 @@
     cursor: pointer;
     transition: 0.3s ease;
 }
-  
+
 .slider__dot:hover, .slider__dot.active {
     background: #000;
 }
