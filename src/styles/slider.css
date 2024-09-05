@@ -77,3 +77,27 @@
 .slider__arrow:hover {
     opacity: 1;
 }
+
+
+.slider__dots {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 100%;
+}
+  
+.slider__dot {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+  
+.slider__dot:hover, .slider__dot.active {
+    background: #000;
+}

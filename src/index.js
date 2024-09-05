@@ -26,7 +26,7 @@ function initSlider(options, slides) {
 
     const sliderImages = document.querySelector('.slider__images');
     const sliderArrows = document.querySelector('.slider__arrows');
-    const sliderDots = document.querySelector('.dots');
+    const sliderDots = document.querySelector('.slider__dots');
 
     function initImages() {
         slides.forEach((slide, index) => {
@@ -44,6 +44,25 @@ function initSlider(options, slides) {
                 </div>
             `;
             sliderImages.innerHTML += imgDiv;
+        });
+    }
+
+    function initDots() {
+        slides.forEach((_, index) => {
+            const dotDiv = `
+                <div
+                    class="slider__dot n${index} ${index === 0 ? 'active' : ''}"
+                    data-index=${index}
+                ></div>
+            `;
+            sliderDots.innerHTML += dotDiv;
+        });
+
+        const dots = sliderDots.querySelectorAll('.slider__dot');
+        dots.forEach((dot) => {
+            dot.addEventListener('click', function () {
+                moveSlider(this.dataset.index);
+            });
         });
     }
 
@@ -70,9 +89,13 @@ function initSlider(options, slides) {
     function moveSlider(nextNum) {
         sliderImages.querySelector('.active').classList.remove('active');
         sliderImages.querySelector('.n' + nextNum).classList.add('active');
+
+        sliderDots.querySelector('.active').classList.remove('active');
+        sliderDots.querySelector('.n' + nextNum).classList.add('active');
     }
 
     initImages();
+    initDots();
     activateArrows();
 }
 
@@ -81,7 +104,6 @@ const sliderOptions = {
     titles: true,
     autoplay: true,
     autoplayInterval: 5000,
-    stylesBtn: true,
     fixedSize: false,
 };
 
